@@ -1,0 +1,67 @@
+.acordeon {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 2px solid #fff;
+    border-radius: 1rem;
+    margin: 1rem 0;
+    transition: 0.25s;
+}
+
+.acordeon.open,
+.acordeon:hover {
+    background-color: #393d47;
+    border-color: #393d47;
+    cursor: pointer; /* Adicione um cursor apontando ao passar o mouse */
+}
+
+.acordeon .btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+}
+
+.acordeon .btn h2 {
+    margin: 0;
+    font-size: 1.75rem;
+}
+
+.acordeon .btn:hover {
+    cursor: pointer;
+}
+
+.acordeon .btn::after {
+    content: '';
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('img/arrow.svg');
+    transition: transform 0.25s ease-in-out;
+}
+
+/* Rotação do ícone ao abrir o acordeão */
+.acordeon.open .btn::after {
+    transform: rotate(180deg);
+}
+
+.acordeon .content {
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    transition: height 0.25s ease-in-out, opacity 0.25s ease-in-out;
+    padding: 0 2rem; /* Aumente o espaçamento à esquerda para uma melhor leitura do conteúdo */
+}
+
+.acordeon.open .content {
+    height: auto;
+    opacity: 1;
+    padding: 1rem 2rem; /* Adicione espaçamento interno ao conteúdo visível */
+}

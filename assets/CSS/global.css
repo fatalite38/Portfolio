@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+body {
+    
+    background-color: #272b30;
+    color: #fff;
+    
+}
+
+a {
+    color: #3498db; /* Uma cor azul atraente para os links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.main {
+    padding: 2rem; /* Mais espaço interno para o conteúdo */
+    margin: 2rem auto; /* Centralize a seção principal */
+    max-width: 1024px; /* Limite a largura máxima para que não fique muito largo em telas grandes */
+    border-radius: 1rem;
+    background-color: #2E3339;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Adicione uma sombra sutil */
+}
+
+.main::before {
+    content: '';
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 140vw;
+    height: 100vh;
+    z-index: -1;
+
+}
+
+.main::after {
+    content: ''; 
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 140vw;
+    height: 100vh;
+    z-index: -1;
+    transform: rotate(180deg);
+
+}
+
+.photo {
+    border-radius: 50%; /* Arredonde a imagem de perfil */
+    width: 150px; /* Ajuste o tamanho da imagem de perfil conforme necessário */
+    height: 150px;
+    margin: 0 auto; /* Centralize a imagem horizontalmente */
+    display: block;
+    border: 4px solid #3498db; /* Adicione uma borda azul à imagem de perfil */
+}
+
+@media only screen and (min-width: 768px) {
+    .main {
+        max-width: 1024px;
+        margin: 1rem auto;
+
+    }
+
+    .main::before {
+        width: 70vw;
+    }
+
+    .main::after {
+        width: 70vw;
+    }
+}

@@ -1,0 +1,96 @@
+.content .portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-container {
+    width: calc(33.33% - 20px); /* Calcule a largura para que haja espaço entre os itens */
+    margin-bottom: 20px;
+    position: relative; /* Para posicionar o texto de carregamento */
+    padding-top: 20px;
+}
+
+
+.loader {
+    
+    font-family: 'Arial Narrow Bold';
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(#0280b3, transparent);
+    box-shadow: 0 0 100px 20px rgba(0, 0, 0, 0.5) inset, 0 0px 50px 20px #393d47;
+}
+
+.loading-text {
+    position: absolute;
+    color: #a2a2a2;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-shadow: 0 0 20px #777777;
+    z-index: 1;
+}
+
+.loader::before,
+.loader::after {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    bottom: 0%;
+    position: absolute;
+    animation: wavy 3s linear infinite, fill 10s linear infinite;
+}
+
+.loader:before {
+    border-radius: 30%;
+    background: rgb(206 206 206 / 33%);
+}
+
+.loader:after {
+    border-radius: 40%;
+    background: #424242;
+}
+
+
+@keyframes wavy {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fill {
+    to {
+        bottom: 110%;
+    }
+}
+
+
+@media only screen and (max-width: 800px){
+    .main-container {
+        width: calc(50% - 20px); /* 2 itens por linha em telas menores */
+    }
+    
+    
+}
+
+@media only screen and (max-width: 598px) {
+    .main-container {
+        width: 100%; /* 1 item por linha em telas muito pequenas */
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .main-container {
+        width: 100%; /* 1 item por linha em telas muito pequenas */
+    }
+
+}

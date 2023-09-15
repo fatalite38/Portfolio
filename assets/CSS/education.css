@@ -1,0 +1,44 @@
+.education {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.education li {
+    margin-bottom: 1rem;
+}
+
+.education li .period {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: -0.75rem;
+}
+
+.education a img{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    margin: 0.5rem;
+
+}
+
+.education a img:hover {
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.education li .period::before {
+    content: "";
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url('img/calendar.svg');
+    margin-right: .5rem;
+}

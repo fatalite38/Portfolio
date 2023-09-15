@@ -22,7 +22,7 @@
     height: 1rem;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url('img/check.svg');
+    background-image: url('/assets/img/check.svg');
     margin-right: 0.5rem;
     flex-shrink: 0; /* Impede que o ícone de verificação seja redimensionado */
 

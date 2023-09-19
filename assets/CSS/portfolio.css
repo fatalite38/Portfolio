@@ -26,13 +26,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: radial-gradient(#0280b3, transparent);
-    box-shadow: 0 0 100px 20px rgba(0, 0, 0, 0.5) inset, 0 0px 50px 20px #393d47;
+    background: radial-gradient(#000000, transparent);
+    box-shadow: 0 0 100px 20px rgba(0, 0, 0, 0.5) inset, 0 0px 50px 20px #2a2a2b;
 }
 
 .loading-text {
     position: absolute;
-    color: #a2a2a2;
+    color: #33ff00;
     letter-spacing: 1px;
     font-weight: bold;
     text-shadow: 0 0 20px #777777;
@@ -57,7 +57,7 @@
 
 .loader:after {
     border-radius: 40%;
-    background: #424242;
+    background: #000000;
 }
 
 

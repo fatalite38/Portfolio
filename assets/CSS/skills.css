@@ -44,3 +44,13 @@
         grid-template-columns: 1fr 1fr;
     }
 }
+@media only screen and (max-width: 412px) {
+    .skills {
+       width: 100%;
+    }
+}
+@media only screen and (max-width: 305px) {
+    .skills .personal li {
+        font-size: 12px;
+    }
+}

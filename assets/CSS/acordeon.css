@@ -10,8 +10,8 @@
 
 .acordeon.open,
 .acordeon:hover {
-    background-color: #393d47;
-    border-color: #393d47;
+    background-color: rgb(39, 39, 39);
+    border-color: #b2bbd3;
     cursor: pointer; /* Adicione um cursor apontando ao passar o mouse */
 }
 

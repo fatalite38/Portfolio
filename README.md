@@ -16,7 +16,8 @@ Meu nome é Luiz Fernando Dionizio Pedrozo, sou um Desenvolvedor de Software Jun
 - MySQL
 - CSS
 - HTML
-- React
+- NodeJs
+- ReactJs
 - Google Cloud
 
 ### Habilidades Pessoais:

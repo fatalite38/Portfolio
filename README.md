@@ -1,71 +1,41 @@
-# Portfólio de Luiz Fernando D. Pedrozo
+# Portfólio de Luiz Pedrozo
 
-Bem-vindo ao meu portfólio! Aqui você encontrará informações sobre minha carreira, habilidades, experiências e projetos.
+Portfólio pessoal com projetos de desenvolvimento web, sistemas de gestão e inteligência artificial. Protótipo em HTML, CSS e JavaScript, sem instalação de dependências ou etapa de build.
 
-## Sobre Mim
+## O que mudou
 
-Meu nome é Luiz Fernando Dionizio Pedrozo, sou um Desenvolvedor de Software Junior com sede em Botucatu, São Paulo. Sou apaixonado por programação e tecnologia, e estou sempre buscando aprender e crescer na área.
+- Apresentação e formação atualizadas.
+- Coco Cuesta, Gelo Gestão e BERT em destaque; exercícios Node.js e Snake Game como estudos complementares.
+- Projetos com filtros, prévias interativas e detalhes em diálogos acessíveis.
+- Trajetória profissional e acadêmica visível na página.
+- Temas claro e escuro, navegação no celular e preferência de tema salva localmente.
+- Contato por e-mail, LinkedIn e GitHub.
 
-## Habilidades
+## Abrir localmente
 
-### Habilidades Profissionais:
+Abra `index.html` no navegador ou use o Live Server da sua IDE. Os arquivos são estáticos; não é necessário executar npm install. A fonte Manrope usa Google Fonts e tem uma alternativa local se o serviço não estiver disponível. A cópia de e-mail tem uma instrução manual quando o navegador não permite acesso à área de transferência.
 
-- JavaScript
-- Python
-- Node.js
-- MySQL
-- CSS
-- HTML
-- NodeJs
-- ReactJs
-- Google Cloud
+## Organização
 
-### Habilidades Pessoais:
+| Arquivo | Responsabilidade |
+| --- | --- |
+| `index.html` | Conteúdo e estrutura semântica |
+| `styles.css` | Layout, componentes e responsividade |
+| `upgrade.css` | Temas, identidade e trajetória |
+| `app.js` | Menu, abas, filtros, diálogos, tema e contato |
+| `assets/projects/` | Imagens e favicon do upgrade |
+| `assets/img/profile2.jpg` | Avatar original reutilizado |
+| `ANALISE-UPGRADE.md` | Diagnóstico do portfólio anterior |
+| `CONTINUAR-NO-CODEX.md` | Como retomar a branch no computador |
+| `DESIGN.md` | Direção visual e fontes do conteúdo |
+| `QA.md` | Verificações realizadas e limites |
 
-- Organização
-- Trabalho em equipe
-- Disciplina no trabalho
-- Proatividade
+Os arquivos antigos de assets continuam preservados no histórico e na árvore, mas o novo HTML usa apenas os caminhos acima. O currículo antigo está sem link na nova página; adicione uma versão atualizada antes de oferecer download.
 
-## Portfólio
+## Estado dos projetos
 
-- [Snake Game](https://snakegameldp-six.vercel.app/) - Um jogo divertido de Snake que desenvolvi.
+As prévias são composições ilustrativas. Gelo Gestão está em desenvolvimento e não expõe dados reais. BERT apresenta um estudo acadêmico em notebook, sem uma API de inferência neste portfólio. Não foram inventadas métricas de desempenho, depoimentos ou resultados comerciais.
 
-## Educação
+## Publicação
 
-- **Engenharia da Computação / Faculdade Galileu**
-  - Período: Jan 2019 - Dez 2023
-
-- **English Express Course / Do it Idiomas**
-  - Período: Mar 2019 - Dez 2020
-
-- [Perfil Público no Google Cloud Skills Boost](https://www.cloudskillsboost.google/public_profiles/12404a58-2542-4f1a-94bf-d391202ebb05)
-- [Perfil na Dio (Digital Innovation One)](https://www.dio.me/users/luizfernandodp1103)
-
-## Idiomas
-
-- Português
-- Inglês
-
-## Experiências Profissionais
-
-- **Front-end Developer / Freelance**
-  - Período: Jan 2023 - Atual
-
-- **Manutenção de Sistemas Eletrônicos / Senai**
-  - Período: Mar 2021 - Mar 2022
-
-## Links
-
-- [GitHub](https://github.com/fatalite38)
-- [LinkedIn](https://www.linkedin.com/in/luiz-fernando-dionizio-pedrozo-3bb0551a3/)
-- [Instagram](https://www.instagram.com/pedrozaooo/)
-- [Currículo (PDF)](assets/Curriculum.pdf)
-
-## Direitos Autorais
-
-© 2023 Luiz Pedrozo. Todos os direitos reservados.
-
----
-
-Este README foi criado como parte do meu portfólio pessoal. Sinta-se à vontade para explorar meus projetos e entrar em contato comigo se tiver alguma dúvida ou oportunidade de colaboração.
+A branch `codex/portfolio-upgrade` está com deploy automático da Vercel desabilitado por uma regra específica em `vercel.json`. A regra não desativa outras branches. Este trabalho foi enviado somente como PR, sem merge ou deploy. Quando houver decisão de publicar, revise o destino e a configuração antes de liberar a versão.

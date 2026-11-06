@@ -1,5 +1,5 @@
 export type ProjectCategory = "web" | "sistemas" | "ia";
-export type ProjectFilter = "all" | ProjectCategory;
+export type ProjectFilter = "all" | "construcao" | ProjectCategory;
 
 export interface ProjectImage {
   type: "image";

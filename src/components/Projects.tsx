@@ -1,16 +1,10 @@
 import { useRef } from "react";
 import { projects } from "../data/projects";
+import { projectFilters } from "../data/projectFilters";
 import { useProjectNavigation } from "../hooks/useProjectNavigation";
-import type { ProjectFilter } from "../types/project";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectDialog } from "./ProjectDialog";
-
-const filters: readonly { id: ProjectFilter; label: string }[] = [
-  { id: "all", label: "Todos" },
-  { id: "web", label: "Web" },
-  { id: "sistemas", label: "Sistemas" },
-  { id: "ia", label: "IA aplicada" },
-];
+import { ConstructionCard } from "./ConstructionCard";
 
 export function Projects() {
   const { filter, selectedProject, selectFilter, openProject, closeProject } =
@@ -43,7 +37,7 @@ export function Projects() {
           role="group"
           aria-label="Filtrar projetos"
         >
-          {filters.map((item) => (
+          {projectFilters.map((item) => (
             <button
               key={item.id}
               type="button"
@@ -57,8 +51,9 @@ export function Projects() {
           ))}
         </div>
         <p id="filter-status" className="sr-only" role="status">
-          {new Intl.NumberFormat("pt-BR").format(count)}{" "}
-          {count === 1 ? "projeto exibido." : "projetos exibidos."}
+          {filter === "construcao"
+            ? "Mostrando iniciativas futuras em construção."
+            : `${new Intl.NumberFormat("pt-BR").format(count)} ${count === 1 ? "projeto exibido." : "projetos exibidos."}`}
         </p>
         <div id="project-list" className="project-list">
           {projects.map((project) => (
@@ -72,6 +67,7 @@ export function Projects() {
               }}
             />
           ))}
+          {filter === "construcao" && <ConstructionCard />}
         </div>
       </section>
       <ProjectDialog

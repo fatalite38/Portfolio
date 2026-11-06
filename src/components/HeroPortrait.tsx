@@ -16,7 +16,7 @@ export function HeroPortrait() {
       </div>
       <figcaption>
         <span>Luiz Pedrozo</span>
-        <span>Desenvolvedor full stack</span>
+        <span>Desenvolvedor full stack e IA aplicada</span>
       </figcaption>
     </figure>
   );

@@ -4,6 +4,8 @@ Portfólio profissional com apresentação, formação, trajetória, projetos e 
 
 A interface é responsiva e oferece navegação por teclado, foco visível e suporte à preferência por movimento reduzido.
 
+O filtro “Em construção” apresenta iniciativas futuras em uma composição SVG/CSS, sem acrescentá-las à contagem dos projetos. Os filtros são refletidos na URL e podem ser retomados por recarga ou pelo histórico do navegador.
+
 ## Tecnologias
 
 - React e React DOM
@@ -54,3 +56,5 @@ Endereço local: `http://localhost:4173`.
 | `styles.css` e `upgrade.css` | Estilos, responsividade e animações |
 
 Os projetos e contatos são mantidos em [src/data/projects.ts](src/data/projects.ts) e [src/data/contact.ts](src/data/contact.ts). As licenças das fontes estão em [assets/fonts/](assets/fonts/).
+
+Os ícones locais usam Simple Icons (CC0-1.0) e Feather (MIT). Licenças e procedência estão em [assets/icons/NOTICE.md](assets/icons/NOTICE.md).

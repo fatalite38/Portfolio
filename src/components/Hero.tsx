@@ -12,7 +12,7 @@ export function Hero() {
       <div className="hero-copy">
         <p className="hero-role">
           <span className="red-mark" aria-hidden="true"></span>Desenvolvedor
-          full stack
+          full stack e IA aplicada
         </p>
         <h1 id="hero-title">
           Luiz

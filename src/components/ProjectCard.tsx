@@ -16,7 +16,9 @@ export function ProjectCard({ project, hidden, onOpen }: Props) {
       data-category={project.category}
       hidden={hidden}
     >
-      <div className="project-media">
+      <div
+        className={`project-media${project.media.type === "image" ? " project-media--image" : ""}`}
+      >
         <ProjectMedia media={project.media} />
       </div>
       <div className="project-copy">

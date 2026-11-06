@@ -8,7 +8,7 @@
 }
 
 .main-container {
-    width: calc(33.33% - 20px); /* Calcule a largura para que haja espaço entre os itens */
+    width: calc(33.33% - 20px);
     margin-bottom: 20px;
     position: relative; /* Para posicionar o texto de carregamento */
     padding-top: 20px;

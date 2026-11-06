@@ -1,9 +1,14 @@
 import type { ProjectMedia as Media } from "../types/project";
 
-export function ProjectMedia({ media }: { media: Media }) {
+interface Props {
+  media: Media;
+  allowFullSize?: boolean;
+}
+
+export function ProjectMedia({ media, allowFullSize = false }: Props) {
   if (media.type === "image") {
     return (
-      <figure className="source-preview">
+      <figure className="source-preview source-preview--image">
         <img
           src={media.src}
           alt={media.alt}
@@ -11,7 +16,20 @@ export function ProjectMedia({ media }: { media: Media }) {
           height={media.height}
           loading="lazy"
         />
-        <figcaption>{media.caption}</figcaption>
+        <figcaption>
+          {media.caption}
+          {allowFullSize && (
+            <a
+              className="media-full-size"
+              href={media.src}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Ampliar imagem: ${media.caption} (nova aba)`}
+            >
+              Ampliar imagem (nova aba)
+            </a>
+          )}
+        </figcaption>
       </figure>
     );
   }

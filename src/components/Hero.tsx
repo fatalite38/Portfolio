@@ -1,5 +1,6 @@
 import { Icon } from "./Icons";
-import avatar from "../../assets/img/profile2.jpg";
+import { HeroPortrait } from "./HeroPortrait";
+import curriculumPdf from "../../assets/docs/Luiz_Pedrozo_CV_Atualizado.pdf";
 
 export function Hero() {
   return (
@@ -19,8 +20,8 @@ export function Hero() {
           Pedrozo<span>.</span>
         </h1>
         <p className="hero-description">
-          Desenvolvo aplicações conectando tecnologia, negócios e inteligência
-          artificial.
+          Desenvolvo aplicações que conectam tecnologia e negócios, com interesse
+          em inteligência artificial aplicada.
         </p>
         <div className="hero-actions">
           <a className="button button-primary" href="#projetos">
@@ -30,24 +31,16 @@ export function Hero() {
             Entrar em contato
           </a>
         </div>
+        <a
+          className="hero-resume text-link"
+          href={curriculumPdf}
+          download="Luiz_Pedrozo_CV_Atualizado.pdf"
+          type="application/pdf"
+        >
+          Baixar currículo
+        </a>
       </div>
-      <figure className="hero-portrait">
-        <div className="portrait-frame">
-          <div className="portrait-light" aria-hidden="true"></div>
-          <img
-            src={avatar}
-            width="460"
-            height="460"
-            alt="Avatar ilustrado de Luiz Pedrozo"
-            fetchPriority="high"
-          />
-          <span className="portrait-corner" aria-hidden="true"></span>
-        </div>
-        <figcaption>
-          <span>Luiz Pedrozo</span>
-          <span>Avatar ilustrado · temporário</span>
-        </figcaption>
-      </figure>
+      <HeroPortrait />
       <div className="hero-foot">
         <p>
           Engenharia de Computação.

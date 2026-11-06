@@ -24,12 +24,13 @@ export function Journey() {
             <Icon name="study" /> Formação e aprendizado
           </h3>
           <article className="journey-entry">
-            <span>Especialização em andamento</span>
+            <span>Em andamento · Início em 2025</span>
             <h4>Inteligência Artificial</h4>
             <p className="entry-place">
               Universidade Tecnológica Federal do Paraná · UTFPR
             </p>
             <p>
+              Conclusão prevista para 2027.{" "}
               Ampliação da base em aprendizado de máquina e aplicações de
               inteligência artificial.
             </p>
@@ -44,7 +45,7 @@ export function Journey() {
             </p>
           </article>
           <article className="journey-entry">
-            <span>Programa concluído</span>
+            <span>Programa concluído · Edição 2024</span>
             <h4>Santander Coders · Front-end</h4>
             <p className="entry-place">Ada Tech</p>
             <p>
@@ -58,28 +59,31 @@ export function Journey() {
             <Icon name="layers" /> Tecnologia e operação
           </h3>
           <article className="journey-entry">
-            <span>Negócio familiar</span>
-            <h4>Gelo Mais Sabor / Coco Cuesta</h4>
+            <span>Maio de 2025 – presente</span>
+            <h4>Analista de Desenvolvimento Júnior</h4>
+            <p className="entry-place">Coco Cuesta · Negócio familiar</p>
             <p>
-              Vivência em rotinas administrativas, marketing e operação. Esse
-              contexto ajuda a definir os problemas que busco resolver com o
-              site da marca e o Gelo Gestão.
+              Desenvolvimento do site institucional e trabalho no projeto de
+              gestão, ainda em desenvolvimento, a partir das necessidades do
+              negócio familiar.
             </p>
           </article>
           <article className="journey-entry">
-            <span>Estágio · 2023–2024</span>
-            <h4>FMB / Unesp</h4>
+            <span>Setembro de 2023 – fevereiro de 2024</span>
+            <h4>Estagiário de Desenvolvimento de Software</h4>
+            <p className="entry-place">FMB / Unesp</p>
             <p>
               Planejamento e levantamento de requisitos para um software de
               gestão de resíduos radioativos.
             </p>
           </article>
           <article className="journey-entry">
-            <span>Aprendizagem · 2021–2022</span>
-            <h4>Manutenção de Sistemas Eletrônicos</h4>
-            <p className="entry-place">Senai</p>
+            <span>Março de 2021 – março de 2022</span>
+            <h4>Aprendiz em Manutenção de Sistemas Eletrônicos</h4>
+            <p className="entry-place">SENAI</p>
             <p>
-              Primeiro contato profissional com processos técnicos e manutenção.
+              Aprendizagem profissional com vínculo e formação em manutenção
+              de sistemas eletrônicos.
             </p>
           </article>
         </div>

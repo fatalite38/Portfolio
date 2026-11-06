@@ -83,8 +83,20 @@ export function ProjectDialog({ project, onDismiss, triggerRef }: Props) {
         <p className="dialog-intro" id="dialog-intro">
           {project?.summary}
         </p>
-        <div id="dialog-media">
-          {project && <ProjectMedia media={project.media} />}
+        <div
+          id="dialog-media"
+          className={project?.gallery?.length ? "project-gallery" : undefined}
+        >
+          {project &&
+            (project.gallery?.length ? project.gallery : [project.media]).map(
+              (media) => (
+                <ProjectMedia
+                  key={media.caption}
+                  media={media}
+                  allowFullSize={Boolean(project.gallery?.length)}
+                />
+              ),
+            )}
         </div>
         <div className="dialog-details" id="dialog-details">
           {project?.sections.map((section) => (

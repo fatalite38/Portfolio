@@ -1,17 +1,19 @@
 export type ProjectCategory = "web" | "sistemas" | "ia";
 export type ProjectFilter = "all" | ProjectCategory;
 
+export interface ProjectImage {
+  type: "image";
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+  caption: string;
+}
+
 export type ProjectMedia =
   | { type: "placeholder"; title: string; description: string; caption: string }
   | { type: "source"; title: string; code: string; caption: string }
-  | {
-      type: "image";
-      src: string;
-      alt: string;
-      width: number;
-      height: number;
-      caption: string;
-    };
+  | ProjectImage;
 
 export type ProjectSection = { title: string } & (
   | { text: string; items?: never }
@@ -33,6 +35,7 @@ export interface Project {
   summary: string;
   technologies: readonly string[];
   media: ProjectMedia;
+  gallery?: readonly ProjectImage[];
   sections: readonly ProjectSection[];
   note?: string;
   links: readonly ProjectLink[];

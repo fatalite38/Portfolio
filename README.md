@@ -1,71 +1,60 @@
-# Portfólio de Luiz Fernando D. Pedrozo
+# Luiz Pedrozo — Portfólio
 
-Bem-vindo ao meu portfólio! Aqui você encontrará informações sobre minha carreira, habilidades, experiências e projetos.
+Portfólio profissional com apresentação, formação, trajetória, projetos e contato. Desenvolvido com React, TypeScript e Vite, inclui filtros de projetos, painéis de detalhes com galerias e download do currículo.
 
-## Sobre Mim
+A interface é responsiva e oferece navegação por teclado, foco visível e suporte à preferência por movimento reduzido.
 
-Meu nome é Luiz Fernando Dionizio Pedrozo, sou um Desenvolvedor de Software Junior com sede em Botucatu, São Paulo. Sou apaixonado por programação e tecnologia, e estou sempre buscando aprender e crescer na área.
+O card “Em construção” apresenta iniciativas futuras em uma composição SVG/CSS. Ele aparece em “Todos”, junto aos três projetos, e sozinho no filtro “Em construção”, sem alterar a contagem de projetos. Os filtros são refletidos na URL e podem ser retomados por recarga ou pelo histórico do navegador.
 
-## Habilidades
+## Tecnologias
 
-### Habilidades Profissionais:
+- React e React DOM
+- TypeScript
+- Vite
+- CSS com fontes locais Space Grotesk e DM Sans
 
-- JavaScript
-- Python
-- Node.js
-- MySQL
-- CSS
-- HTML
-- NodeJs
-- ReactJs
-- Google Cloud
+## Requisitos
 
-### Habilidades Pessoais:
+- Node.js 22.12 ou superior; recomendado Node.js 24.x
+- npm
 
-- Organização
-- Trabalho em equipe
-- Disciplina no trabalho
-- Proatividade
+## Desenvolvimento
 
-## Portfólio
+```bash
+npm ci
+npm run dev
+```
 
-- [Snake Game](https://snakegameldp-six.vercel.app/) - Um jogo divertido de Snake que desenvolvi.
+Aplicação disponível em `http://localhost:5173`.
 
-## Educação
+## Verificação e build
 
-- **Engenharia da Computação / Faculdade Galileu**
-  - Período: Jan 2019 - Dez 2023
+```bash
+npm run typecheck
+npm run build
+```
 
-- **English Express Course / Do it Idiomas**
-  - Período: Mar 2019 - Dez 2020
+O build gera o site estático em `dist/`, com conteúdo pré-renderizado e interações ativadas pelo React. Para visualizar o resultado localmente:
 
-- [Perfil Público no Google Cloud Skills Boost](https://www.cloudskillsboost.google/public_profiles/12404a58-2542-4f1a-94bf-d391202ebb05)
-- [Perfil na Dio (Digital Innovation One)](https://www.dio.me/users/luizfernandodp1103)
+```bash
+npm run preview
+```
 
-## Idiomas
+Endereço local: `http://localhost:4173`.
 
-- Português
-- Inglês
+## Organização
 
-## Experiências Profissionais
+| Caminho | Conteúdo |
+| --- | --- |
+| `src/components/` | Seções da página, navegação e apresentação dos projetos |
+| `src/data/` | Projetos, mídias e contatos |
+| `src/hooks/` | Estado de navegação e comportamento de rolagem |
+| `src/types/` | Tipos dos projetos, mídias e galerias |
+| `src/main.tsx` | Renderização e hidratação da aplicação |
+| `src/entry-server.tsx` e `scripts/prerender.mjs` | Pré-renderização do conteúdo no build |
+| `assets/` | Imagens, fontes e currículo PDF |
+| `styles.css` e `upgrade.css` | Estilos, responsividade e animações |
 
-- **Front-end Developer / Freelance**
-  - Período: Jan 2023 - Atual
+Os projetos e contatos são mantidos em [src/data/projects.ts](src/data/projects.ts) e [src/data/contact.ts](src/data/contact.ts). As licenças das fontes estão em [assets/fonts/](assets/fonts/).
 
-- **Manutenção de Sistemas Eletrônicos / Senai**
-  - Período: Mar 2021 - Mar 2022
-
-## Links
-
-- [GitHub](https://github.com/fatalite38)
-- [LinkedIn](https://www.linkedin.com/in/luiz-fernando-dionizio-pedrozo-3bb0551a3/)
-- [Instagram](https://www.instagram.com/pedrozaooo/)
-- [Currículo (PDF)](assets/Curriculum.pdf)
-
-## Direitos Autorais
-
-© 2023 Luiz Pedrozo. Todos os direitos reservados.
-
----
-
-Este README foi criado como parte do meu portfólio pessoal. Sinta-se à vontade para explorar meus projetos e entrar em contato comigo se tiver alguma dúvida ou oportunidade de colaboração.
+Os ícones locais usam Simple Icons (CC0-1.0) e Feather (MIT). Licenças e procedência estão em [assets/icons/NOTICE.md](assets/icons/NOTICE.md).

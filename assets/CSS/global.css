@@ -21,12 +21,12 @@ a:hover {
 }
 
 .main {
-    padding: 2rem; /* Mais espaço interno para o conteúdo */
-    margin: 2rem auto; /* Centralize a seção principal */
-    max-width: 1024px; /* Limite a largura máxima para que não fique muito largo em telas grandes */
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 1024px;
     border-radius: 1rem;
     background-color: #474c53;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Adicione uma sombra sutil */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
 .main::before {
@@ -59,12 +59,12 @@ a:hover {
 }
 
 .photo {
-    border-radius: 50%; /* Arredonde a imagem de perfil */
-    width: 150px; /* Ajuste o tamanho da imagem de perfil conforme necessário */
+    border-radius: 50%;
+    width: 150px;
     height: 150px;
-    margin: 0 auto; /* Centralize a imagem horizontalmente */
+    margin: 0 auto;
     display: block;
-    border: 4px solid #3498db; /* Adicione uma borda azul à imagem de perfil */
+    border: 4px solid #3498db;
 }
 
 @media only screen and (min-width: 768px) {

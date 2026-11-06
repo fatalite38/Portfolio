@@ -12,7 +12,7 @@
     padding: 1rem;
     font-weight: 700;
     font-size: 1rem;
-    color: #fff; /* Cor do texto para maior legibilidade */
+    color: #fff;
 }
 
 .languages li::before {

@@ -1,0 +1,24 @@
+/* One opening sequence and one scroll transition. No controls wait for motion. */
+@media(prefers-reduced-motion:no-preference){
+  html{scroll-behavior:smooth}
+  .hero-role{animation:opening-copy .7s ease-out both}
+  .hero h1{animation:opening-name .9s cubic-bezier(.2,.65,.25,1) both}
+  .hero-description{animation:opening-copy .8s .1s ease-out both}
+  .hero-portrait{animation:opening-portrait 1s .08s ease-out both}
+  .hero-actions{animation:none}
+  .button,.text-link .icon{transition:transform .2s ease}
+  .button:active{transform:translateY(2px)}
+  .text-link:hover .icon{transform:translateX(4px)}
+  .project-dialog[open]{animation:panel-open .24s ease-out}
+  .transition-line{transform:scaleX(calc(.18 + var(--passage,1) * .82))}
+  .transition-arrow{transform:translateY(calc((1 - var(--passage,1)) * -22px))}
+}
+@keyframes opening-copy{from{transform:translateY(12px);opacity:.65}to{transform:translateY(0);opacity:1}}
+@keyframes opening-name{from{transform:translateY(20px);opacity:.7}to{transform:translateY(0);opacity:1}}
+@keyframes opening-portrait{from{transform:translateY(16px) scale(.97);opacity:.65}to{transform:translateY(0) scale(1);opacity:1}}
+@keyframes panel-open{from{transform:translateY(12px);opacity:.8}to{transform:translateY(0);opacity:1}}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .transition-line,.transition-arrow{transform:none}
+}

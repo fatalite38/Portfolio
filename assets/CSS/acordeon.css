@@ -12,7 +12,7 @@
 .acordeon:hover {
     background-color: rgb(39, 39, 39);
     border-color: #b2bbd3;
-    cursor: pointer; /* Adicione um cursor apontando ao passar o mouse */
+    cursor: pointer;
 }
 
 .acordeon .btn {
@@ -57,11 +57,11 @@
     height: 0;
     opacity: 0;
     transition: height 0.25s ease-in-out, opacity 0.25s ease-in-out;
-    padding: 0 2rem; /* Aumente o espaçamento à esquerda para uma melhor leitura do conteúdo */
+    padding: 0 2rem;
 }
 
 .acordeon.open .content {
     height: auto;
     opacity: 1;
-    padding: 1rem 2rem; /* Adicione espaçamento interno ao conteúdo visível */
+    padding: 1rem 2rem;
 }

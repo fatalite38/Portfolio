@@ -1,40 +1,46 @@
-# Luiz Pedrozo — portfolio direction
+# Luiz Pedrozo — direção visual atual
 
-Audience: recruiters, collaborators, and people considering a web project with Luiz.
-Primary job: understand his work, inspect the real repositories, and reach his verified profiles.
+## Objetivo e público
 
-## Tokens
+Apresentar Luiz a recrutadores e potenciais clientes como desenvolvedor full stack, com interesse em IA aplicada e visão de negócio. A evidência vem dos projetos e da trajetória documentados; não de métricas ou escalas de proficiência.
 
-- Paper: #f7f9fc; white: #ffffff; ink: #142338.
-- Cobalt: #2457e7; blue mist: #e8effc; muted ink: #59687c.
-- Manrope for display and body, with a sans-serif fallback. Large, tightly set headings, sentence case, readable body text.
-- A 1200px left-aligned content grid, generous margins, compact navigation, a two-column opening, a wide featured case, then two supporting cases.
+## Plano de design
 
-## Character
+- Fundo #08090b; superfície #111216; texto #f5f4f1; texto secundário #b2b2bb; vermelho #f13b46; borda #2d2e34.
+- Space Grotesk variável nos títulos, DM Sans variável na leitura. Fontes locais com licenças OFL preservadas em assets/fonts; nenhuma dependência de Google Fonts em execução.
+- Nome em escala grande à esquerda; retrato moderado à direita; apresentação e duas ações imediatamente utilizáveis. Alinhamento à esquerda e linhas de leitura curtas.
+- Na passagem aos projetos, uma linha vermelha se expande com a rolagem, sem travar a página. Os projetos formam três entradas horizontais, com mídia e texto, e painéis nativos para aprofundamento.
 
-The memorable element is a working project window: the visitor switches between a brand website, an operations system, and a machine-learning notebook. The rest of the page stays quiet. The Coco Cuesta packaging is real project material, not generic decorative stock. Gelo Gestão is clearly marked in development. Interface mockups contain no invented performance claims.
+```text
+lp.                       Projetos / Sobre / Trajetória / Contato
+Nome em grande escala     retrato moderado
+Apresentação e ações      identificação
+                  passagem visual
+Projetos                  filtros
+mídia / material          resumo / tecnologias / detalhes
+Sobre                     formação e trajetória
+Contato                   e-mail / LinkedIn / GitHub
+```
 
-## Review before implementation
+## Revisão do plano
 
-The first plan had three interchangeable SaaS cards and decorative technology badges. Revised to a wide editorial case, two quieter cases, and a small code exercise entry. Technology labels now explain the implementation of specific projects. No fake client counts, fabricated testimonials, stock portrait, or simulated contact delivery.
+A janela de IDE e os dashboards simulados da proposta anterior competiam com a identidade pessoal e poderiam sugerir capturas reais. Foram retirados. A composição concentra a expressão no nome e na luz vermelha do retrato; as demais seções priorizam conteúdo. Não há código inventado, números decorativos, movimento em todas as seções ou scroll controlado.
 
-## Interaction and accessibility
+## Movimento e acessibilidade
 
-Project tabs support arrow-key navigation; detail dialogs restore focus and close on Escape. Filters reveal actual project entries. Mobile navigation is a disclosure. Contact uses real GitHub and LinkedIn links. Visible focus, sufficient contrast, reduced-motion support, no essential external scripts, explicit image dimensions, and locally packaged project imagery.
+Entrada coordenada e curta, sem ocultar controles ou bloquear cliques. Animações limitadas a transform/opacity. Movimento de passagem ligado à rolagem, desligado com prefers-reduced-motion. Sem loops, cursores personalizados ou dependência de hover. Foco visível, menu disclosure, filtros com aria-pressed, diálogo nativo com Escape/retorno de foco. Filtros e projeto aberto se refletem na URL.
 
-## Content evidence
+## Evidências e limites das imagens
 
-- https://github.com/fatalite38/GeloMaisSabor — React, TypeScript, Vite, Tailwind, institutional website and brand transition.
-- https://github.com/fatalite38/AnalyzeSentimentBERT — IMDb sentiment classification, BERT, TensorFlow, notebook, no claimed production API.
-- https://github.com/fatalite38/Desafio-Target-Sistemas — Node.js CLI exercises, JSON persistence, commissions, inventory and interest.
-- Existing Coco Cuesta project assets and developer credit provide brand imagery and Luiz's LinkedIn address.
-- Gelo Gestão project context supplied in the conversation; no public repository or completed delivery claimed.
+- Foto profissional: visível na conversa, mas nenhum arquivo disponibilizado ao filesystem ou identificador de download. O avatar existente é temporário e identificado. Não gerar rosto. A segunda referência de composição não chegou como arquivo acessível.
+- Coco Cuesta: endereço canônico https://www.cococuesta.com.br/ consta no repositório GeloMaisSabor. Rede bloqueou www e domínio raiz (CONNECT 403). Captura real pendente, sem interface fictícia. Tecnologias e contexto conferidos no README público, HEAD a1c058fffde8c9956cd8c9fba3c16bad81092bb7.
+- Gelo Gestão: nenhuma captura real ou repositório público disponível. Escopo em desenvolvimento, sem afirmar módulos entregues. É necessário distinguir itens existentes de planejados com o autor e obter capturas com dados demonstrativos.
+- BERT: README menciona notebook, mas o caminho antigo AnalyzeSentiment.ipynb retorna 404. A árvore pública no HEAD 3354bd5dd7046590b79862931c2f8ebeca3c85cb contém analyzesentiment.py (exportação do Colab) e Tcc.pdf. A mídia é um trecho literal desse código, sem resultados fabricados e sem simular uma API. O código usa PyTorch/Transformers no modelo e TensorFlow/Keras no carregamento do IMDb.
 
+## Conteúdo a confirmar com Luiz
 
-## Evolution from the original repository
+E-mail público, LinkedIn /in/luiz-dpedrozo/, situação atual da especialização UTFPR, datas da trajetória e divisão de funcionalidades existentes/planejadas do Gelo Gestão. Informações já documentadas foram preservadas, sem inventar novas qualificações. Currículo antigo continua sem download.
 
-The repository audit changes the brief: retain the original blue accent, dark background and illustrated avatar, while replacing the accordion resume with visible evidence of real work. Dark is the initial theme; visitors can choose light. The new blue-night palette uses #111a29 paper, #182538 surface, #edf3ff text, #b0bfd3 muted text, #8caaff links, and #315be0 primary actions. Manrope remains the only typeface.
+## Continuidade
 
-The avatar stays compact so its neon pink frame does not compete with the project window. A new education and experience section carries the career update. The original Snake study remains a secondary entry. Generic skill claims are replaced by specific projects and context.
-
-Plan review: a large portrait plus several decorative badges made the first screen feel like a template resume. Revised to a small identity anchor, a concrete headline about building software and understanding operations, and the actual project switcher. No skill percentages, seniority inflation or fabricated project results.
+HTML, CSS e JavaScript; dados dos projetos em projects.js. vercel.json deve permanecer intacto. Sem commit, merge ou deploy sem pedido. As diretrizes instaladas de frontend-design e web-design-guidelines foram lidas; o guia atual da Vercel foi consultado para revisão. Brief do usuário prevalece em cores, voz pessoal em português e uso exclusivo de tema escuro.

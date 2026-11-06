@@ -1,41 +1,54 @@
 # Portfólio de Luiz Pedrozo
 
-Portfólio pessoal com projetos de desenvolvimento web, sistemas de gestão e inteligência artificial. Protótipo em HTML, CSS e JavaScript, sem instalação de dependências ou etapa de build.
+Portfólio em HTML, CSS e JavaScript para recrutadores e potenciais clientes. Posicionamento full stack, interesse em IA aplicada e tecnologia conectada ao contexto de negócio. Sem instalação de dependências ou etapa de build.
 
-## O que mudou
+## Executar
 
-- Apresentação e formação atualizadas.
-- Coco Cuesta, Gelo Gestão e BERT em destaque; exercícios Node.js e Snake Game como estudos complementares.
-- Projetos com filtros, prévias interativas e detalhes em diálogos acessíveis.
-- Trajetória profissional e acadêmica visível na página.
-- Temas claro e escuro, navegação no celular e preferência de tema salva localmente.
-- Contato por e-mail, LinkedIn e GitHub.
+Na pasta do repositório:
 
-## Abrir localmente
+```bash
+python3 -m http.server 8080 --bind 127.0.0.1
+```
 
-Abra `index.html` no navegador ou use o Live Server da sua IDE. Os arquivos são estáticos; não é necessário executar npm install. A fonte Manrope usa Google Fonts e tem uma alternativa local se o serviço não estiver disponível. A cópia de e-mail tem uma instrução manual quando o navegador não permite acesso à área de transferência.
+No Windows, use `python` se necessário. Abra `http://localhost:8080` no computador em que o servidor foi iniciado. Também pode usar o Live Server da IDE. O ambiente na nuvem desta sessão não oferece uma URL pública de prévia; localhost da nuvem não é o localhost do seu computador.
 
 ## Organização
 
 | Arquivo | Responsabilidade |
 | --- | --- |
-| `index.html` | Conteúdo e estrutura semântica |
-| `styles.css` | Layout, componentes e responsividade |
-| `upgrade.css` | Temas, identidade e trajetória |
-| `app.js` | Menu, abas, filtros, diálogos, tema e contato |
-| `assets/projects/` | Imagens e favicon do upgrade |
-| `assets/img/profile2.jpg` | Avatar original reutilizado |
-| `ANALISE-UPGRADE.md` | Diagnóstico do portfólio anterior |
-| `CONTINUAR-NO-CODEX.md` | Como retomar a branch no computador |
-| `DESIGN.md` | Direção visual e fontes do conteúdo |
-| `QA.md` | Verificações realizadas e limites |
+| `index.html` | Estrutura, apresentação, formação, trajetória e contato |
+| `styles.css` | Tema escuro, tipografia, layout, componentes e responsividade |
+| `upgrade.css` | Abertura, passagem por rolagem e movimento reduzido |
+| `projects.js` | Dados dos três projetos e referências de mídia |
+| `app.js` | Renderização, menu, filtros, URL, painéis, foco e cópia de e-mail |
+| `assets/fonts/` | Space Grotesk e DM Sans, com licenças OFL |
+| `DESIGN.md` | Direção visual e evidências do conteúdo |
+| `QA.md` | Validações, limites e pendências |
+| `CONTINUAR-NO-CODEX.md` | Instruções para retomar o trabalho |
 
-Os arquivos antigos de assets continuam preservados no histórico e na árvore, mas o novo HTML usa apenas os caminhos acima. O currículo antigo está sem link na nova página; adicione uma versão atualizada antes de oferecer download.
+## Experiência atual
 
-## Estado dos projetos
+- Somente tema escuro, em grafite, branco e vermelho.
+- Abertura coordenada sem bloquear conteúdo ou ações; rolagem livre.
+- Três projetos: Coco Cuesta, Gelo Gestão e análise de sentimentos com BERT.
+- Filtros com estado na URL (`?filtro=web`, `sistemas`, `ia`).
+- Detalhes em diálogo nativo, com Escape, foco contido e retorno ao botão de origem. Link direto: `?projeto=bert`.
+- Menu compacto acessível, navegação por teclado e preferência por movimento reduzido.
+- Fontes locais: o carregamento da página não depende do Google Fonts.
+- Contato por e-mail, LinkedIn e GitHub; cópia de e-mail com alternativa manual.
 
-As prévias são composições ilustrativas. Gelo Gestão está em desenvolvimento e não expõe dados reais. BERT apresenta um estudo acadêmico em notebook, sem uma API de inferência neste portfólio. Não foram inventadas métricas de desempenho, depoimentos ou resultados comerciais.
+Para adicionar um projeto, acrescente um registro em `projects.js`, com ID único, categoria, contexto, contribuição, tecnologias, mídia e links verificados. O mesmo registro alimenta a lista e o painel. Ajuste o total dos filtros em `index.html` e os filtros se criar uma categoria. `media.type = 'image'` aceita uma captura real com `src`, `alt`, `width`, `height` e `caption`; nenhum screenshot deve ser fabricado como se fosse a interface real.
+
+## Precisão dos materiais
+
+A foto profissional aparece na conversa, mas o arquivo não chegou ao filesystem da nuvem; o avatar original segue identificado como temporário. A segunda referência visual também não chegou como arquivo acessível.
+
+Coco Cuesta tem endereço canônico `https://www.cococuesta.com.br/`, conferido no repositório público. A captura fiel está pendente porque a rede bloqueou o site. Gelo Gestão permanece em desenvolvimento, sem captura real disponível ou demonstração pública; a divisão entre funcionalidades existentes e planejadas precisa ser confirmada.
+
+BERT é um estudo acadêmico. O repositório publica `analyzesentiment.py` (exportado do Colab) e `Tcc.pdf`; o link antigo para `AnalyzeSentiment.ipynb` não existe na árvore verificada. O portfólio exibe um trecho verdadeiro do código, sem API de inferência ou métricas de desempenho inventadas.
+
+Os assets antigos foram preservados, mas não são usados para simular interfaces. Snake Game e os desafios Node.js deixaram a seleção principal nesta etapa, conforme o escopo de três projetos. O currículo antigo continua sem link de download.
 
 ## Publicação
 
-A branch `codex/portfolio-upgrade` está com deploy automático da Vercel desabilitado por uma regra específica em `vercel.json`. A regra não desativa outras branches. Este trabalho foi enviado somente como PR, sem merge ou deploy. Quando houver decisão de publicar, revise o destino e a configuração antes de liberar a versão.
+`vercel.json` mantém o bloqueio de deploy automático da branch `codex/portfolio-upgrade`. A etapa 1 autoriza commit e push para atualizar o PR #1 e preparar um preview; a liberação do deploy aguarda a conferência da integração e da branch de produção do projeto `portfolio` na Vercel. As APIs do GitHub e da Vercel foram bloqueadas pela política de rede desta máquina. Nenhum merge, promoção ou alteração do domínio de produção é autorizado. Novas tarefas já executam em ambiente isolado; use o checkout existente, sem criar worktree a menos que seja solicitado.

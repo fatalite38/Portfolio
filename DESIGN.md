@@ -43,4 +43,14 @@ E-mail público, LinkedIn /in/luiz-dpedrozo/, situação atual da especializaç�
 
 ## Continuidade
 
-HTML, CSS e JavaScript; dados dos projetos em projects.js. vercel.json deve permanecer intacto. Sem commit, merge ou deploy sem pedido. As diretrizes instaladas de frontend-design e web-design-guidelines foram lidas; o guia atual da Vercel foi consultado para revisão. Brief do usuário prevalece em cores, voz pessoal em português e uso exclusivo de tema escuro.
+React, TypeScript e Vite; dados tipados dos projetos em src/data/projects.ts. vercel.json deve permanecer intacto. Sem commit, merge ou deploy sem pedido. As diretrizes instaladas de frontend-design e web-design-guidelines foram lidas; o guia atual da Vercel foi consultado para revisão. Brief do usuário prevalece em cores, voz pessoal em português e uso exclusivo de tema escuro.
+
+## Migração técnica com preservação visual
+
+Base aprovada: c24354eac578a2f6f0f7d7462feb105d3c97b125. O inventário anterior à migração está em MIGRACAO.md. Os seis tokens, Space Grotesk/DM Sans, hierarquia, composição, avatar temporário, conteúdo e animações foram mantidos. styles.css e upgrade.css não foram alterados.
+
+A alteração é de implementação: seções em componentes React, mídia e seções com tipos discriminados, estado de filtros/painéis em hook e diálogo nativo controlado por refs. Os efeitos removem listeners, observadores e frames ao desmontar, inclusive no StrictMode. Não há UI kit, router ou biblioteca de animação.
+
+Vite processa CSS, fontes e avatar para URLs com hash. O build pré-renderiza a página com o próprio react-dom/server, para preservar conteúdo e links sem JavaScript, e hidrata a experiência. A URL é aplicada após a hidratação para manter a saída inicial consistente; o ano do build também é atualizado depois da hidratação para evitar divergência em viradas de ano.
+
+O brief continua prevalecendo sobre recomendações gerais das skills: não redesenhar a página, não trocar a identidade visual, não inventar interfaces para projetos e não alterar deploy nesta etapa. A comparação visual e os limites estão em QA.md.

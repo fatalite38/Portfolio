@@ -13,68 +13,10 @@
   <title>Luiz Pedrozo — Desenvolvimento full stack</title>
   <link rel="icon" href="assets/projects/favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/space-grotesk.ttf" as="font" type="font/ttf" crossorigin>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="upgrade.css">
-  <script src="projects.js" defer></script>
-  <script src="app.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
-    <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M10 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-5"/></symbol>
-    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18"/></symbol>
-    <symbol id="i-study" viewBox="0 0 24 24"><path d="m2 9 10-5 10 5-10 5L2 9M6 11v7c4 3 8 3 12 0v-7m4-2v8"/></symbol>
-    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12 3 10 6-10 6L2 9l10-6M2 13l10 6 10-6M2 17l10 6 10-6"/></symbol>
-    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
-  </svg>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="wordmark" href="#inicio" aria-label="Luiz Pedrozo, início">lp<span>.</span></a>
-      <nav class="main-nav" id="main-nav" aria-label="Navegação principal">
-        <a href="#projetos">Projetos</a><a href="#sobre">Sobre</a><a href="#trajetoria">Trajetória</a><a href="#contato">Contato</a>
-      </nav>
-      <a class="header-github" href="https://github.com/fatalite38" target="_blank" rel="noopener noreferrer">GitHub <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Abrir menu"><span></span><span></span></button>
-    </div>
-  </header>
-  <main id="conteudo" tabindex="-1">
-    <section class="hero container" id="inicio" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="hero-role"><span class="red-mark" aria-hidden="true"></span>Desenvolvedor full stack</p>
-        <h1 id="hero-title">Luiz<br>Pedrozo<span>.</span></h1>
-        <p class="hero-description">Desenvolvo aplicações conectando tecnologia, negócios e inteligência artificial.</p>
-        <div class="hero-actions"><a class="button button-primary" href="#projetos">Ver projetos <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="button button-secondary" href="#contato">Entrar em contato</a></div>
-      </div>
-      <figure class="hero-portrait">
-        <div class="portrait-frame"><div class="portrait-light" aria-hidden="true"></div><img src="assets/img/profile2.jpg" width="460" height="460" alt="Avatar ilustrado de Luiz Pedrozo" fetchpriority="high"><span class="portrait-corner" aria-hidden="true"></span></div>
-        <figcaption><span>Luiz Pedrozo</span><span>Avatar ilustrado · temporário</span></figcaption>
-      </figure>
-      <div class="hero-foot"><p>Engenharia de Computação.<br>Tecnologia com contexto de negócio.</p><a href="#projetos">Conheça meu trabalho <span aria-hidden="true">↓</span></a><p class="hero-location">Botucatu, São Paulo<br>Brasil</p></div>
-    </section>
-    <section class="project-transition" aria-labelledby="transition-title"><div class="container"><span class="transition-line" aria-hidden="true"></span><p id="transition-title">Da ideia à aplicação.<br><span>Com o problema em foco.</span></p><svg class="transition-arrow" viewBox="0 0 80 80" aria-hidden="true"><path d="M16 16l48 48M16 64h48V16"/></svg></div></section>
-    <section class="projects-section container" id="projetos" aria-labelledby="projects-title">
-      <div class="section-heading"><h2 id="projects-title">Projetos<br>em perspectiva<span>.</span></h2><p>Interfaces, regras de negócio e IA.<br>Três formas de explorar o que a tecnologia pode resolver.</p></div>
-      <div class="project-filters" role="group" aria-label="Filtrar projetos"><button type="button" data-filter="all" aria-pressed="true">Todos <span>3</span></button><button type="button" data-filter="web" aria-pressed="false">Web</button><button type="button" data-filter="sistemas" aria-pressed="false">Sistemas</button><button type="button" data-filter="ia" aria-pressed="false">IA aplicada</button></div>
-      <p id="filter-status" class="sr-only" role="status">3 projetos exibidos.</p>
-      <div id="project-list" class="project-list"></div>
-      <noscript><p>Para os painéis de detalhes e filtros, ative JavaScript. Você também pode consultar os projetos diretamente:</p><ul><li><a href="https://github.com/fatalite38/GeloMaisSabor" translate="no">Coco Cuesta</a></li><li>Gelo Gestão — em desenvolvimento, sem demonstração pública.</li><li><a href="https://github.com/fatalite38/AnalyzeSentimentBERT">Análise de sentimentos com BERT</a></li></ul></noscript>
-    </section>
-    <section class="about-section" id="sobre" aria-labelledby="about-title"><div class="container about-grid"><div><p class="section-kicker">Sobre mim</p><h2 id="about-title">O código é parte.<br>O contexto conecta<span>.</span></h2></div><div class="about-copy"><p class="large-copy">Sou engenheiro de computação e desenvolvedor full stack, com interesse em inteligência artificial aplicada.</p><p>Minha vivência com um negócio familiar aproxima a tecnologia da operação: entender o trabalho de quem usa, organizar informação e construir soluções que façam sentido além da tela.</p><p>Nos projetos, exploro interfaces com React e TypeScript, dados e autenticação com Supabase e processamento de linguagem natural com Python. Do site institucional à gestão de estoque, meu interesse está em conectar a experiência de quem usa às regras de cada negócio.</p><a class="text-link" href="https://www.linkedin.com/in/luiz-dpedrozo/" target="_blank" rel="noopener noreferrer">Conheça minha trajetória no LinkedIn <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a></div></div></section>
-    <section class="journey-section container" id="trajetoria" aria-labelledby="journey-title"><div class="section-heading"><h2 id="journey-title">Uma trajetória.<br>Mais de uma perspectiva<span>.</span></h2><p>Formação em engenharia, desenvolvimento<br>e experiência próxima da operação.</p></div><div class="journey-grid"><div class="journey-column"><h3><svg class="icon" aria-hidden="true"><use href="#i-study"/></svg> Formação e aprendizado</h3>
-        <article class="journey-entry"><span>Especialização em andamento</span><h4>Inteligência Artificial</h4><p class="entry-place">Universidade Tecnológica Federal do Paraná · UTFPR</p><p>Ampliação da base em aprendizado de máquina e aplicações de inteligência artificial.</p></article>
-        <article class="journey-entry"><span>Graduação concluída</span><h4>Engenharia de Computação</h4><p class="entry-place">Faculdade Galileu</p><p>Base em computação e sistemas, com TCC dedicado à análise de sentimento com BERT.</p></article>
-        <article class="journey-entry"><span>Programa concluído</span><h4>Santander Coders · Front-end</h4><p class="entry-place">Ada Tech</p><p>Formação complementar em desenvolvimento de interfaces e aplicações web.</p></article>
-      </div><div class="journey-column"><h3><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg> Tecnologia e operação</h3>
-        <article class="journey-entry"><span>Negócio familiar</span><h4>Gelo Mais Sabor / Coco Cuesta</h4><p>Vivência em rotinas administrativas, marketing e operação. Esse contexto ajuda a definir os problemas que busco resolver com o site da marca e o Gelo Gestão.</p></article>
-        <article class="journey-entry"><span>Estágio · 2023–2024</span><h4>FMB / Unesp</h4><p>Planejamento e levantamento de requisitos para um software de gestão de resíduos radioativos.</p></article>
-        <article class="journey-entry"><span>Aprendizagem · 2021–2022</span><h4>Manutenção de Sistemas Eletrônicos</h4><p class="entry-place">Senai</p><p>Primeiro contato profissional com processos técnicos e manutenção.</p></article>
-      </div></div>
-    </section>
-    <section class="contact-section" id="contato" aria-labelledby="contact-title"><div class="container contact-grid"><div><p class="section-kicker">Vamos conversar</p><h2 id="contact-title">O próximo projeto<br>começa com<br>uma conversa<span>.</span></h2><p>Para oportunidades profissionais,<br>projetos e boas trocas sobre tecnologia.</p></div><div class="contact-links"><a class="email-link" href="mailto:luizfernandodp1103@gmail.com"><span>E-mail</span><strong>luizfernandodp1103@gmail.com</strong><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a href="https://www.linkedin.com/in/luiz-dpedrozo/" target="_blank" rel="noopener noreferrer"><span>Carreira e conexões</span><strong>LinkedIn</strong><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a><a href="https://github.com/fatalite38" target="_blank" rel="noopener noreferrer"><span>Código e estudos</span><strong>GitHub</strong><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a><button class="copy-profile" type="button">Copiar e-mail</button><p class="copy-status" role="status" aria-live="polite"></p></div></div></section>
-  </main>
-  <footer class="site-footer container"><a class="wordmark" href="#inicio" aria-label="Voltar ao início">lp<span>.</span></a><p>Luiz Pedrozo · <span id="current-year">2026</span></p><a href="#inicio">Voltar ao topo ↑</a></footer>
-  <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-title"><div class="dialog-header"><span id="dialog-category"></span><button class="dialog-close" type="button" aria-label="Fechar detalhes do projeto"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button></div><div class="dialog-content"><p class="dialog-status" id="dialog-status"></p><h2 id="dialog-title"></h2><p class="dialog-intro" id="dialog-intro"></p><div id="dialog-media"></div><div class="dialog-details" id="dialog-details"></div><ul class="technology-tags" id="dialog-tech" aria-label="Tecnologias do projeto"></ul><div class="dialog-links" id="dialog-links"></div></div></dialog>
-  <template id="project-template"><article class="project-entry"><div class="project-media"></div><div class="project-copy"><p class="project-status"></p><h3></h3><p class="project-summary"></p><ul class="technology-tags" aria-label="Tecnologias do projeto"></ul><div class="project-actions"><button type="button" class="text-link">Conhecer projeto <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button></div></div></article></template>
+  <div id="root"><!--app-html--></div>
+  <noscript><p class="container">A navegação por filtros e os painéis de detalhes precisam de JavaScript. O conteúdo e os links permanecem disponíveis.</p></noscript>
+  <script type="module" src="/src/main.tsx"></script>
 </body>
 </html>

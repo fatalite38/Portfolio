@@ -1,83 +1,106 @@
-# Validação da atualização visual
+# Validação da migração React + TypeScript + Vite
 
-Validação em 6 de novembro de 2026. Branch `codex/portfolio-upgrade`, base `e08bcb550c6ba29186a7ad184c731261d49a5953`. Alterações locais; sem commit, merge ou deploy.
+Base: c24354eac578a2f6f0f7d7462feb105d3c97b125, branch codex/portfolio-upgrade. O inventário anterior à migração está em MIGRACAO.md. Este registro documenta a migração e suas validações. A etapa de envio para revisão autoriza commit e push da branch, sem merge ou deploy.
 
-## Ferramentas e execução
+## Verificações de código e build
 
-Servidor Python na porta 8080, servindo /workspace/Portfolio. Chromium headless instalado na máquina, via Playwright para Python. Não foram instaladas dependências de aplicação nem executado build, porque o projeto é estático.
+- npm install concluiu com React/React DOM e ferramentas TypeScript/Vite; package-lock.json gerado. O formatador usado pontualmente não foi adicionado às dependências.
+- npm run typecheck passou com TypeScript strict, noUnusedLocals e noUnusedParameters.
+- npm run build passou: bundle cliente, pré-renderização com react-dom/server e remoção da pasta temporária .prerender.
+- npm run dev e npm run preview iniciaram nas portas 5173 e 4173. Nos dois modos, nenhuma falha de recurso, erro JavaScript ou mensagem de erro de hidratação na inspeção inicial.
+- Dados de src/data/projects.ts comparados em JSON com os de projects.js da base: valores idênticos. Nenhuma funcionalidade, métrica, experiência ou mídia foi inventada.
+- styles.css, upgrade.css, vercel.json e os assets originais permanecem sem alterações; hashes dos dois estilos e do deploy conferidos.
+- app.js e projects.js da raiz foram removidos e substituídos por componentes, hooks e dados tipados. Não há duas implementações da aplicação em paralelo.
+- git diff --check passou. dist, .prerender e node_modules são ignorados e não serão incluídos no diff.
 
-```bash
-python3 -m http.server 8080 --bind 127.0.0.1
-node --check app.js
-node --check projects.js
-git diff --check
-```
+## Navegador e interações
 
-Os dois checks de sintaxe e a verificação de whitespace passaram. Referências de arquivos e fragmentos do HTML foram conferidas; sem IDs duplicados, referências locais inexistentes ou fragmentos inválidos.
+Chromium headless via Playwright para Python, já disponível no ambiente. Os testes da migração foram executados contra os servidores reais de desenvolvimento e do build. Scripts e evidências temporários desta máquina:
 
-## Resultado funcional
+- /tmp/validate-react-portfolio.py
+- /tmp/migration-extended.py
+- /tmp/portfolio-react-production/validation.json (17 verificações compostas aprovadas)
+- /tmp/portfolio-react-development/validation.json (16 verificações compostas aprovadas; teste sem JS específico do build não se aplica ao dev)
 
-18 verificações compostas aprovadas. Script desta sessão: /tmp/validate-portfolio-red.py. Evidência: /tmp/portfolio-final-validation.json. Esses arquivos temporários não fazem parte do repositório e podem não existir em outra máquina.
+Cobertura:
 
-- HTTP 200 e conteúdo idêntico ao checkout para HTML, scripts, estilos, avatar, favicon e as duas fontes locais.
-- SHA-256 de vercel.json idêntico ao registrado antes das alterações.
-- Ação da primeira dobra utilizável com as animações de entrada pausadas pelo teste: nenhum atraso obrigatório.
-- Tema exclusivamente escuro, inclusive com preferência antiga por tema claro no localStorage. Fontes locais efetivamente carregadas.
-- Três projetos, dois espaços de captura pendente e trecho de BERT comparado ao código público original.
-- Larguras 320, 390, 768, 1024 e 1440 px: sem rolagem horizontal, filtros Todos=3/Web=1/Sistemas=1/IA=1, estados aria-pressed e anúncio da quantidade.
-- Nas cinco larguras: painéis dos três projetos abertos por Enter; foco inicial no fechar, navegação por Tab dentro do modal nativo, Escape e botão de fechamento com retorno ao acionador. Conteúdo do painel sem rolagem horizontal.
-- Menu móvel: abrir, Escape com foco no botão, navegação por seção com fechamento e foco no destino.
-- Filtro e projeto na URL; reload preserva a abertura do projeto; combinação de filtro incompatível é normalizada para a categoria correta.
-- Link “Pular para o conteúdo” chega ao main. Outline visível em navegação por teclado.
-- Cópia de e-mail testada com permissão real do navegador negada (alternativa manual) e concedida (conteúdo conferido no clipboard).
-- prefers-reduced-motion: nenhuma animação ativa, sem smooth scroll, transição estática e painéis utilizáveis.
-- Passagem visual acompanha a rolagem livre; nenhuma rolagem presa ou controlada artificialmente.
-- Nenhum erro JavaScript, requisição falha ou HTTP 4xx/5xx nos recursos da própria página durante os testes.
-- Emulação de toque: menu, navegação, filtro e painel por tap.
-- JavaScript desativado: apresentação, seções, contato e links alternativos dos projetos disponíveis. Filtros e painéis dependem de JavaScript.
+- Primeira dobra acionável durante a entrada animada, sem esperar o término.
+- Somente tema escuro, mesmo com preferência antiga por tema claro no localStorage. Fontes locais carregadas.
+- Três projetos e mídias preservadas: dois espaços explicitamente pendentes e o trecho verdadeiro de BERT.
+- 320, 390, 768, 1024 e 1440 px: sem rolagem horizontal; filtros Todos=3/Web=1/Sistemas=1/IA=1, estado aria-pressed, contagem anunciada.
+- Em cada largura, painéis dos três projetos: abrir por Enter, foco inicial no fechar, Tab no diálogo nativo, Escape e botão de fechar com retorno ao acionador. Sem rolagem horizontal no painel.
+- Menu móvel: abrir, fechar, Escape, retorno ao botão e navegação por seção com foco no destino.
+- URL: filtro e painel restaurados após reload; filtro incompatível normalizado.
+- Skip link chegando ao main; foco visível em navegação por teclado.
+- Cópia de e-mail com permissão real negada (alternativa manual) e concedida (conteúdo conferido no clipboard).
+- prefers-reduced-motion: sem animações ou smooth scroll, passagem estática e painéis funcionais.
+- Passagem ligada à rolagem livre, sem prender a página.
+- Zero erros de console/JavaScript/hidratação, requisições falhas ou HTTP 4xx/5xx nos recursos da página durante a suíte.
+- Toque emulado: menu, link de seção, filtro, abrir e fechar painel.
+- Build sem JavaScript: apresentação, três projetos pré-renderizados, seções e contatos disponíveis no HTML. As interações precisam de JS; o modo de desenvolvimento Vite também depende de JS.
 
-## Revisão web-design-guidelines
+Testes adicionais aprovados nos dois modos:
 
-Guia atual consultado em https://raw.githubusercontent.com/vercel-labs/web-interface-guidelines/main/command.md. frontend-design também foi lida e aplicada. O brief do usuário prevalece em cores, voz pessoal em português e uso exclusivo de tema escuro.
+- Bloqueio da rolagem ao abrir modal e restauração ao fechar.
+- Fechamento ao clicar no fundo.
+- Popstate e botões Voltar/Avançar reais do navegador.
+- Foco no projeto correto quando aberto pelo histórico após outro projeto; foco no filtro ativo se o acionador se torna oculto por uma mudança de histórico.
+- Menu fecha por clique fora, saída do foco e troca de breakpoint.
+- StrictMode em desenvolvimento sem duplicação observada de efeitos/listeners ou erro de console nos cenários testados.
+- Virada de ano simulada para 2027 após um build de 2026: ano atualizado no cliente sem erros de hidratação ou console.
+- Mensagem final de fallback e os três projetos conferidos no DOM do build com JavaScript desativado.
 
-- index.html:41 — corrigido destino do skip link com tabindex=-1.
-- styles.css:18 — foco visível; layout de 320 px e quebra de conteúdo longo conferidos.
-- upgrade.css:20 — movimento reduzido desliga animação/transição e smooth scroll.
-- app.js:175 — filtros/painéis restauram estado pela URL; painéis usam diálogo nativo.
-- projects.js:5 — dados estruturados alimentam lista/painel; mídia pendente explicitamente identificada.
+## Comparação com a versão visual aprovada
 
-Na revisão das interações implementadas, não restou falha funcional conhecida nas verificações realizadas. Isso não equivale a auditoria completa de acessibilidade ou a teste com leitor de tela.
+Cópia exata do commit estático servida isoladamente na porta 8081. Capturas da base e do build React obtidas no mesmo Chromium, com fontes prontas, animações finalizadas, topo da página e viewport de 1000 px de altura nas cinco larguras.
 
-## Links externos
+| Largura | Dimensão da captura completa | Pixels diferentes | Geometria, texto e links |
+| --- | --- | --- | --- |
+| 320 | 320 × 6748 | 0 | Iguais |
+| 390 | 390 × 6268 | 0 | Iguais |
+| 768 | 768 × 4684 | 0 | Iguais |
+| 1024 | 1024 × 4711 | 0 | Iguais |
+| 1440 | 1440 × 4624 | 0 | Iguais |
 
-Requisições de leitura nesta sessão, com TLS e proxy preservados:
+Uma diferença inicial de 1/64 de pixel causada por um espaço dividido em dois nós de texto no filtro foi corrigida. A comparação final tem zero pixels diferentes nas cinco capturas. Isso descreve as condições medidas, não garante equivalência em todos os navegadores ou em todos os instantes de animação.
 
-| Destino | Resultado |
-| --- | --- |
-| github.com/fatalite38 | HTTP 200 |
-| github.com/fatalite38/GeloMaisSabor | HTTP 200 |
-| github.com/fatalite38/AnalyzeSentimentBERT | HTTP 200 |
-| BERT /blob/main/analyzesentiment.py | HTTP 200 |
-| BERT /blob/main/Tcc.pdf | HTTP 200 |
-| www.cococuesta.com.br | Bloqueio do proxy, CONNECT 403 |
-| www.linkedin.com/in/luiz-dpedrozo/ | Bloqueio do proxy, CONNECT 403 |
+Resultados: /tmp/migration-final-comparison/results.json. Capturas finais:
 
-O antigo caminho BERT /blob/main/AnalyzeSentiment.ipynb retornou 404 e foi substituído por links aos materiais reais. A inacessibilidade de Coco Cuesta/LinkedIn nesta máquina não estabelece indisponibilidade pública dos sites. Mailto foi conferido como endereço preservado; envio de e-mail e identidade do perfil LinkedIn exigem confirmação do autor.
+- /tmp/migration-final-comparison/1440.png
+- /tmp/migration-final-comparison/1024.png
+- /tmp/migration-final-comparison/768.png
+- /tmp/migration-final-comparison/390.png
+- /tmp/migration-final-comparison/320.png
+- /tmp/portfolio-react-production/panel.png
 
-## Capturas desta sessão
+Essas evidências temporárias não estão no repositório e podem não persistir em outra máquina. Não houve deployment público nesta etapa.
 
-- /tmp/portfolio-final-desktop.png (1440 × 1000, página completa).
-- /tmp/portfolio-final-mobile.png (390 × 844, página completa).
-- /tmp/portfolio-final-320.png (320 × 800, página completa).
-- /tmp/portfolio-final-tablet.png (768 × 1024, página completa).
-- /tmp/portfolio-final-panel.png (painel BERT em desktop).
+## Revisão das skills
 
-Inspeção visual realizada nas capturas, incluindo tablet e painel. Não há ferramenta de URL pública de prévia nesta sessão. Localhost da nuvem não é acessível pelo localhost do computador do usuário; use as capturas ou execute o checkout localmente conforme README.
+frontend-design e web-design-guidelines instaladas foram lidas. Guia atual da Vercel obtido antes da revisão. Não houve redesenho; o brief de preservação e o português pessoal prevalecem sobre recomendações genéricas.
 
-## Limites e pendências
+- src/components/Header.tsx — controles semânticos, estado ARIA, foco, Escape e cleanup de eventos.
+- src/components/ProjectDialog.tsx — diálogo nativo e foco; referências imperativas usadas apenas nas APIs necessárias do navegador.
+- src/hooks/useProjectNavigation.ts — URL, validação de parâmetros e hidratação inicial consistente.
+- src/hooks/useScrollPassage.ts — requestAnimationFrame, observer e listeners com cleanup; movimento reduzido.
+- src/components/ProjectMedia.tsx — mídia tipada, legenda, alt e dimensões obrigatórios para capturas reais.
+- src/components/Footer.tsx — ano inicial consistente com a pré-renderização, atualizado após hidratação.
+- index.html e scripts/prerender.mjs — metadados preservados, conteúdo estático disponível no build e fontes críticas locais.
 
-- Não testado em Safari/Firefox, dispositivo físico, leitor de tela ou ambiente de produção. Toque e movimento reduzido foram emulados no Chromium. Nenhuma nota Lighthouse ou auditoria de contraste completa é reivindicada.
-- Foto profissional visível na conversa, porém sem arquivo acessível na máquina; avatar temporário preservado. Segunda referência visual não recebida como arquivo acessível.
-- Coco Cuesta: captura fiel do site bloqueada pela rede. Gelo Gestão: falta captura real com dados demonstrativos e confirmação dos módulos existentes/planejados. Não foi criada interface fictícia para substituí-las.
-- BERT: estudo acadêmico; código/modelo não executado nesta tarefa, sem API e sem métricas de desempenho afirmadas.
-- Confirmar contato, LinkedIn, andamento da especialização UTFPR e datas da trajetória antes de uma publicação futura. Currículo antigo segue sem download.
+## Diferenças técnicas e limites
+
+O projeto agora exige Node para desenvolvimento/build e tem runtime React no cliente. O bundle cliente medido ficou em cerca de 245 kB (76 kB gzip), além de CSS, fontes e avatar; não foi feita medição Lighthouse. A pré-renderização ocorre no build, não há backend ou servidor SSR em produção. Arquivos de fonte devem ser servidos com Vite; o resultado em dist pode ser servido como site estático.
+
+Não foram testados Safari/Firefox, leitor de tela ou aparelhos físicos. Toque e movimento reduzido foram emulados no Chromium. A comparação de pixels cobre a página estável nas cinco larguras, não cada quadro da animação.
+
+Links e pendências da base foram preservados. GitHub havia respondido HTTP 200 na etapa anterior; Coco Cuesta e LinkedIn estavam bloqueados pelo proxy. Não foram feitas novas afirmações de disponibilidade desses serviços nem executado o modelo BERT nesta migração.
+
+Continuam pendentes: arquivo da foto profissional e segunda referência visual, capturas reais de Coco Cuesta/Gelo Gestão, confirmação dos módulos existentes/planejados do Gelo Gestão, contatos e dados pessoais/formação. Avatar temporário, marcação de desenvolvimento e caráter acadêmico de BERT permanecem explícitos.
+
+## Conferência antes do envio ao PR #1
+
+- Base local e remota conferida: c24354eac578a2f6f0f7d7462feb105d3c97b125, branch codex/portfolio-upgrade; PR #1 aberto.
+- npm run typecheck e npm run build executados novamente e aprovados. A pré-renderização terminou e removeu .prerender.
+- Diff revisado, incluindo arquivos novos e removidos. package.json e package-lock.json entram como definição e trava das dependências; node_modules, dist, .prerender, caches e evidências temporárias ficam fora do commit.
+- A documentação preserva as limitações de navegador, imagens e conteúdo. O build local não equivale a deployment público.
+- vercel.json, styles.css, upgrade.css e os assets originais permanecem sem alterações. O envio é somente para a branch do PR; não há merge ou deploy nesta etapa.

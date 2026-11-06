@@ -4,7 +4,7 @@ Portfólio profissional com apresentação, formação, trajetória, projetos e 
 
 A interface é responsiva e oferece navegação por teclado, foco visível e suporte à preferência por movimento reduzido.
 
-O filtro “Em construção” apresenta iniciativas futuras em uma composição SVG/CSS, sem acrescentá-las à contagem dos projetos. Os filtros são refletidos na URL e podem ser retomados por recarga ou pelo histórico do navegador.
+O card “Em construção” apresenta iniciativas futuras em uma composição SVG/CSS. Ele aparece em “Todos”, junto aos três projetos, e sozinho no filtro “Em construção”, sem alterar a contagem de projetos. Os filtros são refletidos na URL e podem ser retomados por recarga ou pelo histórico do navegador.
 
 ## Tecnologias
 

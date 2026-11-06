@@ -54,6 +54,8 @@ export function Projects() {
           {filter === "construcao"
             ? "Mostrando iniciativas futuras em construção."
             : `${new Intl.NumberFormat("pt-BR").format(count)} ${count === 1 ? "projeto exibido." : "projetos exibidos."}`}
+          {filter === "all" &&
+            " Iniciativas futuras em construção também estão visíveis."}
         </p>
         <div id="project-list" className="project-list">
           {projects.map((project) => (
@@ -67,7 +69,7 @@ export function Projects() {
               }}
             />
           ))}
-          {filter === "construcao" && <ConstructionCard />}
+          {(filter === "all" || filter === "construcao") && <ConstructionCard />}
         </div>
       </section>
       <ProjectDialog
